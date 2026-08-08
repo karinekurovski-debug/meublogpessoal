@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #d1dad3;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #d1dad3;
+            padding: 20px;
+        }
+
+        /* Cabeçalho Verde-Água do seu blog original */
+        header {
+            background-color: #b7d5c4; 
+            color: #1a2a3a;
+            text-align: center;
+            padding: 25px 20px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+
+        .author-header {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* Estrutura dos Posts */
+        article {
+            margin-bottom: 35px;
+            padding-left: 10px;
+        }
+
+        .post-title {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .post-author {
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 12px;
+        }
+
+        .post-content {
+            color: #222222;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* Botões de Reação */
+        .reactions {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #e2ece5;
+            border: 1px solid #a8bba8;
+            border-radius: 4px;
+            padding: 5px 12px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        button:hover {
+            background-color: #cbd8ce;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Meu Blog</h1>
+            <p>Ontem de manhã teve jogos escolares, estava muito chuvoso</p>
+            <div class="author-header">Desenvolvido por: Karine Kurovski</div>
+        </header>
+
+        <main>
+            <article>
+                <h2 class="post-title">📘 Bem-vindos ao meu primeiro Blog</h2>
+                <div class="post-author">Por: Karine Kurovski</div>
+                <p class="post-content">
+                    Meu blog foi desenvolvido para compartilhar assuntos sobre o cotidiano.
+                </p>
+                <div class="reactions">
+                    <button>💖 <span>17</span></button>
+                    <button>🔥 <span>2</span></button>
+                </div>
+            </article>
+
+            <article>
+                <h2 class="post-title">📘 Meu segundo post</h2>
+                <div class="post-author">Por: Karine Kurovski</div>
+                <p class="post-content">
+                    Depois de muitos dias de chuva, hoje apareceu o sol. ☀️
+                </p>
+                <div class="reactions">
+                    <button>💖 <span>0</span></button>
+                    <button>🔥 <span>0</span></button>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script>
+        const botoes = document.querySelectorAll("button");
+
+        botoes.forEach(function (botao) {
+            let curtiu = false;
+            
+            botao.addEventListener("click", botaoClicado);
+
+            function botaoClicado() {
+                console.log("fui clicado");
+                let texto = botao.querySelector("span");
+                
+                if (curtiu === false) {
+                    texto.textContent++;
+                    curtiu = true;
+                } else {
+                    texto.textContent--;
+                    curtiu = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
